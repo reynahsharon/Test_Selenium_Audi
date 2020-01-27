@@ -4,11 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,9 +18,12 @@ class ServerResults_37W {
 
     WebDriver makeDriver() {
         System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette", true);
-        WebDriver driver = new FirefoxDriver(capabilities);
+//        DesiredCapabilities capabilities = DesiredCapabilities.firefox(); //deprecated
+//        capabilities.setCapability("marionette", true); //deprecated
+//        WebDriver driver = new FirefoxDriver(capabilities); //deprecated
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setCapability("marionette", true);
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
         driver.get("http://gh-dsk0247:8080/login?from=%2F");
         WebElement username = driver.findElement(By.id("j_username"));
         WebElement password = driver.findElement(By.name("j_password"));
@@ -65,7 +67,7 @@ class ServerResults_37W {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_azure_CVT_VW_ICAS3_Int_Functional");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -106,7 +108,7 @@ class ServerResults_37W {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_37W_InternalPS_Functional");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -185,7 +187,7 @@ class ServerResults_37W {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_azure_CVT_VW_ICAS3_Int_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -223,7 +225,7 @@ class ServerResults_37W {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Ext_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -261,7 +263,7 @@ class ServerResults_37W {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Int_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -270,39 +272,46 @@ class ServerResults_37W {
 }
 
 public class MIB3_VW_37W_Cloud {
-    public static void main(String[] args) throws IOException, AWTException, InterruptedException {
+    public static void main(String[] args) throws AWTException, InterruptedException {
         ServerResults_37W serverResults37W = new ServerResults_37W();
         WebDriver driver = serverResults37W.makeDriver();
-        serverResults37W.buildNo = 516;
+//        serverResults37W.buildNo = 516;
+        // Functional
+        int newBuildNo = 528;
+        int oldBuildNo = 526;
 
-        // 1- FUNCTIONAL server_azure_CVT_VW_37W_Internal        // Last verified build: 518
-        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Functional(518, driver);
+        // Regression
+//        int newBuildNo = 126;
+//        int oldBuildNo = 123;
+
+        // 1- FUNCTIONAL server_azure_CVT_VW_37W_Internal
+        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Functional(oldBuildNo, driver);
         WebDriver driver1 = serverResults37W.makeDriver();
-        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Functional(522, driver1);
+        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Functional(newBuildNo, driver1);
 
-        // 2- FUNCTIONAL server_mtldev_VW_37W_InternalPS        // Last verified build:
-   //     serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Functional(518,driver);
+        // 2- FUNCTIONAL server_mtldev_VW_37W_InternalPS
+//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Functional(oldBuildNo,driver);
 //        WebDriver driver1 = serverResults37W.makeDriver();
-//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Functional(522,driver1);
+//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Functional(newBuildNo,driver1);
 
-        // 3- FUNCTIONAL server_mtldev_VW_37W_External        // Last verified build:
-//        serverResults37W.openResult_server_mtldev_VW_37W_External_Functional(518, driver);
+        // 3- FUNCTIONAL server_mtldev_VW_37W_External
+//        serverResults37W.openResult_server_mtldev_VW_37W_External_Functional(oldBuildNo, driver);
 //        WebDriver driver1 = serverResults37W.makeDriver();
-//        serverResults37W.openResult_server_mtldev_VW_37W_External_Functional(serverResults37W.buildNo, driver1);
+//        serverResults37W.openResult_server_mtldev_VW_37W_External_Functional(newBuildNo, driver1);
 
-        // 4- REGRESSION server_azure_CVT_VW_37W_Internal        // Last verified build:
-//        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Regression(518, driver);
+        // 4- REGRESSION server_azure_CVT_VW_37W_Internal
+//        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Regression(oldBuildNo, driver);
 //        WebDriver driver1 = serverResults37W.makeDriver();
-//        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Regression(serverResults37W.buildNo, driver1);
+//        serverResults37W.openResult_server_azure_CVT_VW_37W_Internal_Regression(newBuildNo, driver1);
 
-        // 5- REGRESSION server_mtldev_VW_37W_InternalPS        // Last verified build:
-//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Regression(serverResults37W.buildNo, driver);
+        // 5- REGRESSION server_mtldev_VW_37W_InternalPS
+//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Regression(oldBuildNo, driver);
 //        WebDriver driver1 = serverResults37W.makeDriver();
-//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Regression(serverResults37W.buildNo, driver1);
+//        serverResults37W.openResult_server_mtldev_VW_37W_InternalPS_Regression(newBuildNo, driver1);
 
-        // 6- REGRESSION server_mtldev_VW_37W_External        // Last verified build:
-//        serverResults37W.openResult_server_mtldev_VW_37W_External_Regression(serverResults37W.buildNo, driver);
+        // 6- REGRESSION server_mtldev_VW_37W_External
+//        serverResults37W.openResult_server_mtldev_VW_37W_External_Regression(oldBuildNo, driver);
 //        WebDriver driver1 = serverResults37W.makeDriver();
-//        serverResults37W.openResult_server_mtldev_VW_37W_External_Regression(serverResults37W.buildNo, driver1);
+//        serverResults37W.openResult_server_mtldev_VW_37W_External_Regression(newBuildNo, driver1);
     }
 }

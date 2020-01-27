@@ -4,11 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,9 +18,12 @@ class ServerResults_ICAS3 {
 
     WebDriver makeDriver() {
         System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette", true);
-        WebDriver driver = new FirefoxDriver(capabilities);
+//        DesiredCapabilities capabilities = DesiredCapabilities.firefox(); //Deprecated
+//        capabilities.setCapability("marionette", true); //Deprecated
+//        WebDriver driver = new FirefoxDriver(capabilities); //Deprecated
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setCapability("marionette", true);
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
         driver.get("http://gh-dsk0247:8080/login?from=%2F");
         WebElement username = driver.findElement(By.id("j_username"));
         WebElement password = driver.findElement(By.name("j_password"));
@@ -69,7 +71,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_azure_CVT_VW_ICAS3_Int_Functional");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -113,7 +115,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Ext_Functional");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -157,7 +159,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Int_Functional");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -194,7 +196,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_azure_CVT_VW_ICAS3_Int_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -231,7 +233,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Ext_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -268,7 +270,7 @@ class ServerResults_ICAS3 {
             r.keyRelease(KeyEvent.VK_T);
             Thread.sleep(1000);
 //To switch to the new tab
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get((Integer) entry.getValue()));
             System.out.println("Finished opening results for server: server_mtldev_VW_ICAS3_Int_Regression");
             System.out.println("language: " + entry.getKey() + " and build: " + bn);
@@ -277,39 +279,47 @@ class ServerResults_ICAS3 {
 }
 
 public class MIB3_VW_ICAS3_Cloud {
-    public static void main(String[] args) throws IOException, AWTException, InterruptedException {
+    public static void main(String[] args) throws InterruptedException, AWTException {
         ServerResults_ICAS3 serverResultsICAS3 = new ServerResults_ICAS3();
         WebDriver driver = serverResultsICAS3.makeDriver();
         //  serverResultsICAS3.buildNo = 421;
 
-        // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int        // Last verified build: 423
-        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(423,driver);
+        // Functional
+        int newBuildNo = 428;
+        int oldBuildNo = 426;
+
+        // Regression
+//        int newBuildNo = 126;
+//        int oldBuildNo = 123;
+
+        // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int
+        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(newBuildNo,driver);
         WebDriver driver1 = serverResultsICAS3.makeDriver();
-        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(421, driver1);
+        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(oldBuildNo, driver1);
 
-        // 2 - FUNCTIONAL server_mtldev_VW_ICAS3_Ext        // Last verified build: 423
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Functional(416,driver);
+        // 2 - FUNCTIONAL server_mtldev_VW_ICAS3_Ext
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Functional(newBuildNo,driver);
 //        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Functional(421,driver1);
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Functional(oldBuildNo,driver1);
 
-        // 3 - FUNCTIONAL server_mtldev_VW_ICAS3_Int        // Last verified build: 423
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Functional(416, driver);
+        // 3 - FUNCTIONAL server_mtldev_VW_ICAS3_Int
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Functional(newBuildNo, driver);
 //        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Functional(421, driver1);
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Functional(oldBuildNo, driver1);
 
-        // 4 - REGRESSION server_azure_CVT_VW_ICAS3_Int        // Last verified build: 119
-//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Regression(105, driver);
+        // 4 - REGRESSION server_azure_CVT_VW_ICAS3_Int
+//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Regression(newBuildNo, driver);
 //        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Regression(119, driver1);
+//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Regression(oldBuildNo, driver1);
 
-        // 5 - REGRESSION server_mtldev_VW_ICAS3_Ext        // Last verified build: 119
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Regression(105, driver);
+        // 5 - REGRESSION server_mtldev_VW_ICAS3_Ext
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Regression(newBuildNo, driver);
 //        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Regression(119, driver1);
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Regression(oldBuildNo, driver1);
 
-        // 6 - REGRESSION server_mtldev_VW_ICAS3_Int        // Last verified build: 119
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Regression(105, driver);
+        // 6 - REGRESSION server_mtldev_VW_ICAS3_Int
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Regression(newBuildNo, driver);
 //        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Regression(119, driver1);
+//        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Int_Regression(oldBuildNo, driver1);
     }
 }
