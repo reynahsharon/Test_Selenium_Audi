@@ -18,9 +18,6 @@ class ServerResults_37W {
 
     WebDriver makeDriver() {
         System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
-//        DesiredCapabilities capabilities = DesiredCapabilities.firefox(); //deprecated
-//        capabilities.setCapability("marionette", true); //deprecated
-//        WebDriver driver = new FirefoxDriver(capabilities); //deprecated
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
         WebDriver driver = new FirefoxDriver(firefoxOptions);
@@ -35,7 +32,8 @@ class ServerResults_37W {
     }
 
     // 1- FUNCTIONAL server_azure_CVT_VW_37W_Internal
-    void openResult_server_azure_CVT_VW_37W_Internal_Functional(int bn, WebDriver driver) throws AWTException, InterruptedException {
+    void openResult_server_azure_CVT_VW_37W_Internal_Functional(int bn, WebDriver driver) throws AWTException,
+            InterruptedException {
         buildNo = bn;
         LinkedHashMap<String, Integer> langs = new LinkedHashMap<>();
         langs.put("CZC", 1);
@@ -48,7 +46,8 @@ class ServerResults_37W {
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_azure_CVT_VW_37W_Internal_Functional;
-            url_server_azure_CVT_VW_37W_Internal_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20Cloud%20-%20Functional" +
+            url_server_azure_CVT_VW_37W_Internal_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20Cloud" +
+                    "%20-%20Functional" +
                     "/" + bn + "/Language=ALL," +
                     "Server=server_azure_CVT_VW_37W_Internal," +
                     "label=master/artifact/logs/MIB3+VW/" + entry.getKey() + "/Functional_All_Tests" +
@@ -89,7 +88,8 @@ class ServerResults_37W {
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_mtldev_VW_37W_InternalPS_Functional;
-            url_server_mtldev_VW_37W_InternalPS_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20Cloud%20-%20Functional" +
+            url_server_mtldev_VW_37W_InternalPS_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20" +
+                    "Cloud%20-%20Functional" +
                     "/" + bn + "/Language=ALL," +
                     "Server=server_mtldev_VW_37W_InternalPS," +
                     "label=master/artifact/logs/MIB3+VW/" + entry.getKey() + "/Functional_All_Tests" +
@@ -169,7 +169,8 @@ class ServerResults_37W {
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_azure_CVT_VW_ICAS3_Int_Regression;
-            url_server_azure_CVT_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20Cloud%20-%20Regression/Language=ALL," +
+            url_server_azure_CVT_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-37W%20Cloud%20-%20" +
+                    "Regression/Language=ALL," +
                     "Server=server_azure_CVT_VW_37W_Internal," +
                     "label=master/" + bn + "/artifact/logs/MIB3+VW/" + entry.getKey() + "/Regression_All_Tests" +
                     "/server_azure_CVT_VW_37W_Internal" +
@@ -275,10 +276,10 @@ public class MIB3_VW_37W_Cloud {
     public static void main(String[] args) throws AWTException, InterruptedException {
         ServerResults_37W serverResults37W = new ServerResults_37W();
         WebDriver driver = serverResults37W.makeDriver();
-//        serverResults37W.buildNo = 516;
+
         // Functional
-        int newBuildNo = 528;
-        int oldBuildNo = 526;
+        int newBuildNo = 529;
+        int oldBuildNo = 528;
 
         // Regression
 //        int newBuildNo = 126;

@@ -18,9 +18,6 @@ class ServerResults_ICAS3 {
 
     WebDriver makeDriver() {
         System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
-//        DesiredCapabilities capabilities = DesiredCapabilities.firefox(); //Deprecated
-//        capabilities.setCapability("marionette", true); //Deprecated
-//        WebDriver driver = new FirefoxDriver(capabilities); //Deprecated
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
         WebDriver driver = new FirefoxDriver(firefoxOptions);
@@ -35,7 +32,8 @@ class ServerResults_ICAS3 {
     }
 
     // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int
-    void openResult_server_azure_CVT_VW_ICAS3_Int_Functional(int bn, WebDriver driver) throws AWTException, InterruptedException {
+    void openResult_server_azure_CVT_VW_ICAS3_Int_Functional(int bn, WebDriver driver) throws AWTException,
+            InterruptedException {
         buildNo = bn;
         LinkedHashMap<String, Integer> langs = new LinkedHashMap<>();
         langs.put("ENU", 1);
@@ -52,7 +50,8 @@ class ServerResults_ICAS3 {
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_azure_CVT_VW_ICAS3_Int_Functional;
-            url_server_azure_CVT_VW_ICAS3_Int_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Functional" +
+            url_server_azure_CVT_VW_ICAS3_Int_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20" +
+                    "Cloud%20-%20Functional" +
                     "/" + bn + "/Language=ALL," +
                     "Server=server_azure_CVT_VW_ICAS3_Int," +
                     "label=master/artifact/logs/MIB3+VW/" + entry.getKey() + "/Functional_All_Tests" +
@@ -96,7 +95,8 @@ class ServerResults_ICAS3 {
         langs.put("CZC", 11);
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_mtldev_VW_ICAS3_Ext_Functional;
-            url_server_mtldev_VW_ICAS3_Ext_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Functional" +
+            url_server_mtldev_VW_ICAS3_Ext_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20" +
+                    "Cloud%20-%20Functional" +
                     "/" + bn + "/Language=ALL," +
                     "Server=server_mtldev_VW_ICAS3_Ext," +
                     "label=master/artifact/logs/MIB3+VW/" + entry.getKey() + "/Functional_All_Tests" +
@@ -140,7 +140,8 @@ class ServerResults_ICAS3 {
         langs.put("CZC", 11);
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_mtldev_VW_ICAS3_Int_Functional;
-            url_server_mtldev_VW_ICAS3_Int_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Functional" +
+            url_server_mtldev_VW_ICAS3_Int_Functional = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20" +
+                    "Cloud%20-%20Functional" +
                     "/" + bn + "/Language=ALL," +
                     "Server=server_mtldev_VW_ICAS3_Int," +
                     "label=master/artifact/logs/MIB3+VW/" + entry.getKey() + "/Functional_All_Tests" +
@@ -175,10 +176,13 @@ class ServerResults_ICAS3 {
         langs.put("FRF", 2);
         langs.put("GED", 3);
         langs.put("ITI", 4);
+        langs.put("SPE", 5);
+        langs.put("ENG", 6);
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_azure_CVT_VW_ICAS3_Int_Regression;
-            url_server_azure_CVT_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Regression/Language=ALL," +
+            url_server_azure_CVT_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20" +
+                    "Cloud%20-%20Regression/Language=ALL," +
                     "Server=server_mtldev_VW_ICAS3_Int," +
                     "label=master/" + bn + "/artifact/logs/MIB3+VW/" + entry.getKey() + "/Regression_All_Tests" +
                     "/server_mtldev_VW_ICAS3_Int" +
@@ -212,10 +216,13 @@ class ServerResults_ICAS3 {
         langs.put("FRF", 2);
         langs.put("GED", 3);
         langs.put("ITI", 4);
+        langs.put("SPE", 5);
+        langs.put("ENG", 6);
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_mtldev_VW_ICAS3_Ext_Regression;
-            url_server_mtldev_VW_ICAS3_Ext_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Regression/Language=ALL," +
+            url_server_mtldev_VW_ICAS3_Ext_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20" +
+                    "Regression/Language=ALL," +
                     "Server=server_mtldev_VW_ICAS3_Ext," +
                     "label=master/" + bn + "/artifact/logs/MIB3+VW/" + entry.getKey() + "/Regression_All_Tests" +
                     "/server_mtldev_VW_ICAS3_Ext" +
@@ -249,10 +256,13 @@ class ServerResults_ICAS3 {
         langs.put("FRF", 2);
         langs.put("GED", 3);
         langs.put("ITI", 4);
+        langs.put("SPE", 5);
+        langs.put("ENG", 6);
 
         for (Map.Entry entry : langs.entrySet()) {
             String url_server_mtldev_VW_ICAS3_Int_Regression;
-            url_server_mtldev_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20Regression/Language=ALL," +
+            url_server_mtldev_VW_ICAS3_Int_Regression = "http://gh-dsk0247:8080/job/MIB3+%20VW-ICAS3%20Cloud%20-%20" +
+                    "Regression/Language=ALL," +
                     "Server=server_mtldev_VW_ICAS3_Int," +
                     "label=master/" + bn + "/artifact/logs/MIB3+VW/" + entry.getKey() + "/Regression_All_Tests" +
                     "/server_mtldev_VW_ICAS3_Int" +
@@ -282,20 +292,19 @@ public class MIB3_VW_ICAS3_Cloud {
     public static void main(String[] args) throws InterruptedException, AWTException {
         ServerResults_ICAS3 serverResultsICAS3 = new ServerResults_ICAS3();
         WebDriver driver = serverResultsICAS3.makeDriver();
-        //  serverResultsICAS3.buildNo = 421;
 
         // Functional
-//        int newBuildNo = 431;
-//        int oldBuildNo = 430;
+        int newBuildNo = 464;
+        int oldBuildNo = 463;
 
         // Regression
-//        int newBuildNo = 129;
-//        int oldBuildNo = 128;
+//        int newBuildNo = 162;
+//        int oldBuildNo = 158;
 
         // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int
-//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(newBuildNo,driver);
-//        WebDriver driver1 = serverResultsICAS3.makeDriver();
-//        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(oldBuildNo, driver1);
+        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(newBuildNo, driver);
+        WebDriver driver1 = serverResultsICAS3.makeDriver();
+        serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(oldBuildNo, driver1);
 
         // 2 - FUNCTIONAL server_mtldev_VW_ICAS3_Ext
 //        serverResultsICAS3.openResult_server_mtldev_VW_ICAS3_Ext_Functional(newBuildNo,driver);
