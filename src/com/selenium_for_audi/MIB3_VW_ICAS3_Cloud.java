@@ -292,14 +292,15 @@ public class MIB3_VW_ICAS3_Cloud {
     public static void main(String[] args) throws InterruptedException, AWTException {
         ServerResults_ICAS3 serverResultsICAS3 = new ServerResults_ICAS3();
         WebDriver driver = serverResultsICAS3.makeDriver();
-
+        int newBuildNo =0;
+        int oldBuildNo =0;
         // Functional
-        int newBuildNo = 464;
-        int oldBuildNo = 463;
+//        newBuildNo = 520;
+//        oldBuildNo = 517;
 
         // Regression
-//        int newBuildNo = 162;
-//        int oldBuildNo = 158;
+        newBuildNo = 220;
+        oldBuildNo = 206;
 
         // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int
         serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(newBuildNo, driver);
