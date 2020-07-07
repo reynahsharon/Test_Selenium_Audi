@@ -295,12 +295,12 @@ public class MIB3_VW_ICAS3_Cloud {
         int newBuildNo =0;
         int oldBuildNo =0;
         // Functional
-//        newBuildNo = 520;
-//        oldBuildNo = 517;
+        newBuildNo = 574;
+        oldBuildNo = 567;
 
         // Regression
-        newBuildNo = 220;
-        oldBuildNo = 206;
+//        newBuildNo = 274;
+//        oldBuildNo = 269;
 
         // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int
         serverResultsICAS3.openResult_server_azure_CVT_VW_ICAS3_Int_Functional(newBuildNo, driver);
