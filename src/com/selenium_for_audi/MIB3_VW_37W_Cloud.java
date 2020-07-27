@@ -24,7 +24,7 @@ class ServerResults_37W {
         driver.get("http://gh-dsk0247:8080/login?from=%2F");
         WebElement username = driver.findElement(By.id("j_username"));
         WebElement password = driver.findElement(By.name("j_password"));
-        WebElement login = driver.findElement(By.xpath("//button[@id='yui-gen1-button']"));
+        WebElement login = driver.findElement(By.xpath("//*[@name='Submit']"));
         username.sendKeys("joe");
         password.sendKeys("jenkins");
         login.click();
