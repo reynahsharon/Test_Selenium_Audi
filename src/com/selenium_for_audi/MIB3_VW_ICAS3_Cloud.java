@@ -17,7 +17,8 @@ class ServerResults_ICAS3 {
     int buildNo;
 
     WebDriver makeDriver() {
-        System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
+        System.setProperty("webdriver.gecko.driver", "./src/resources/drivers/geckodriver.exe");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
         WebDriver driver = new FirefoxDriver(firefoxOptions);
@@ -292,14 +293,14 @@ public class MIB3_VW_ICAS3_Cloud {
     public static void main(String[] args) throws InterruptedException, AWTException {
         ServerResults_ICAS3 serverResultsICAS3 = new ServerResults_ICAS3();
         WebDriver driver = serverResultsICAS3.makeDriver();
-        int newBuildNo =0;
-        int oldBuildNo =0;
+        int newBuildNo = 0;
+        int oldBuildNo = 0;
         // Functional
-        newBuildNo = 607;
-        oldBuildNo = 579;
+        newBuildNo = 609; // TODO: Update build numbers
+        oldBuildNo = 607;
 
         // Regression
-//        newBuildNo = 274;
+//        newBuildNo = 274; // TODO: Update build numbers
 //        oldBuildNo = 269;
 
         // 1 - FUNCTIONAL server_azure_CVT_VW_ICAS3_Int

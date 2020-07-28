@@ -17,7 +17,8 @@ class ServerResults_37W {
     int buildNo;
 
     WebDriver makeDriver() {
-        System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\GeckoDriver.exe");
+        System.setProperty("webdriver.gecko.driver", "./src/resources/drivers/geckodriver.exe");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
         WebDriver driver = new FirefoxDriver(firefoxOptions);
@@ -278,11 +279,11 @@ public class MIB3_VW_37W_Cloud {
         WebDriver driver = serverResults37W.makeDriver();
 
         // Functional
-        int newBuildNo = 529;
+        int newBuildNo = 529; // TODO: Update build numbers
         int oldBuildNo = 528;
 
         // Regression
-//        int newBuildNo = 126;
+//        int newBuildNo = 126; // TODO: Update build numbers
 //        int oldBuildNo = 123;
 
         // 1- FUNCTIONAL server_azure_CVT_VW_37W_Internal
